@@ -1,0 +1,11 @@
+$screen-break-point: 749.5px;
+
+section.formContainer {
+  margin-top: 64px;
+}
+
+@media screen and (max-width: $screen-break-point) {
+  section.formContainer {
+    margin-top: 24px;
+  }
+}
