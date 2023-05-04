@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import styles from "./Header.module.scss";
 
 const Header = ({ icons }) => {

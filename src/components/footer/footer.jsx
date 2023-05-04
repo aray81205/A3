@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss";
 const Footer = ({ icons }) => {
   return (
     <>
-      <footer className={styles.footer}>
+      <footer className={styles.sitefooter}>
         <div className={styles.footerContainer}>
           <div className={styles.footerLogoContainer}>
             <svg className={styles.iconLogo}>
