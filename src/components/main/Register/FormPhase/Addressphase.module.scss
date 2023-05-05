@@ -64,26 +64,14 @@
   width: 100%;
   gap: 10px;
 }
-
-.selectGroup {
-  flex: 1;
+.selectGroup{
+  flex:1;
 }
-
-.nameInput {
-  flex: 2;
+.flex1Input {
+  flex:1;
 }
-
-.phoneInput,
-.emailInput {
-  flex: 1;
-}
-
-.citySelectGroup {
-  flex: 1;
-}
-
-.addressInput {
-  flex: 2;
+.flex2Input {
+  flex:2;
 }
 
 h3.formTitle {

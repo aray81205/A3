@@ -50,12 +50,24 @@ const AddressPhase = () => {
                 </select>
               </div>
             </div>
-            <InputGroup inputLabel="姓名" placeholder="請輸入姓名" />
+            <InputGroup
+              inputLabel="姓名"
+              className={`${styles.flex2Input}`}
+              placeholder="請輸入姓名"
+            />
           </div>
 
           <div className={`${styles.row} col col-12`}>
-            <InputGroup inputLabel="電話" placeholder="請輸入行動電話" />
-            <InputGroup inputLabel="Email" placeholder="請輸入電子郵件" />
+            <InputGroup
+              inputLabel="電話"
+              className={`${styles.flex1Input}`}
+              placeholder="請輸入行動電話"
+            />
+            <InputGroup
+              inputLabel="Email"
+              className={`${styles.flex1Input}`}
+              placeholder="請輸入電子郵件"
+            />
           </div>
 
           <div className={`${styles.row} col col-12`}>
@@ -74,7 +86,11 @@ const AddressPhase = () => {
                 </select>
               </div>
             </div>
-            <InputGroup inputLabel="地址" placeholder="請輸入地址" />
+            <InputGroup
+              inputLabel="地址"
+              className={`${styles.flex2Input}`}
+              placeholder="請輸入地址"
+            />
           </div>
         </section>
       </form>
