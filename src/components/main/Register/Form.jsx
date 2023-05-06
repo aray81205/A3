@@ -5,8 +5,8 @@ const FormPhase = () => {
     <>
       <section className={`${styles.formContainer} col col-12`}>
         <AddressPhase />
-        <ShippingPhase />
-        <CreditCard />
+        {/* <CreditCard />
+        <ShippingPhase /> */}
       </section>
     </>
   );
