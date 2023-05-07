@@ -1,9 +1,9 @@
 import "./reset.css";
 import "./base.scss";
 import icons from "./assets/icons/icons.svg";
-// ---
-import { Header, Main, Footer } from "./components";
-// ---
+
+import { Header, Main, Footer } from "./components/index";
+
 function App() {
   return (
     <div className="App">

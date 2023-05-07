@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
 import styles from "./Footer.module.scss";
 const Footer = ({ icons }) => {
   return (
