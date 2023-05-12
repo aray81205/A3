@@ -1,6 +1,12 @@
 import styles from "./Header.module.scss";
+import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
+import { ReactComponent as ToggleIcon } from "../../assets/icons/toggle.svg";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { ReactComponent as CartIcon } from "../../assets/icons/cart.svg";
+import { ReactComponent as MoonIcon } from "../../assets/icons/moon.svg";
+import { ReactComponent as SunIcon } from "../../assets/icons/sun.svg";
 
-const Header = ({ icons }) => {
+export default function Header() {
   return (
     <>
       <header className={styles.siteHeader}>
@@ -15,9 +21,9 @@ const Header = ({ icons }) => {
             htmlFor={styles.navbarToggle}
             className={styles.burgerContainer}
           >
-            <svg className={`${styles.iconToggle} cursor-point`}>
-              <use xlinkHref="#svg-icon-toggle" />
-            </svg>
+            <ToggleIcon
+              className={`${styles.iconToggle} ${styles.cursorPoint}`}
+            />
           </label>
 
           {/* navbar-menu */}
@@ -52,37 +58,34 @@ const Header = ({ icons }) => {
             <ul className={`${styles.navList} ${styles.siteActionList}`}>
               {/* search */}
               <li id={styles.themeToggle} className={styles.navItem}>
-                <svg className={`${styles.navIcon} cursor-point`}>
-                  <use xlinkHref={`${icons}#svg-icon-search`} />
-                </svg>
+                <SearchIcon
+                  className={`${styles.navIcon} ${styles.cursorPoint}`}
+                />
               </li>
               {/* cart */}
               <li id={styles.themeToggle} className={styles.navItem}>
-                <svg className={`${styles.navIcon} cursor-point`}>
-                  <use xlinkHref={`${icons}#svg-icon-logo`} />
-                </svg>
+                <CartIcon
+                  className={`${styles.navIcon} ${styles.cursorPoint}`}
+                />
               </li>
               <li id={styles.themeToggle} className={styles.navItem}>
                 {/* moon */}
-                <svg className={`${styles.navIcon} cursor-point`}>
-                  <use xlinkHref={`${icons}#svg-icon-logo`} />
-                </svg>
+                <MoonIcon
+                  className={`${styles.navIcon} ${styles.cursorPoint}`}
+                />
                 {/* sun */}
-                <svg className={`${styles.navIcon} cursor-point`}>
-                  <use xlinkHref={`${icons}#svg-icon-logo`} />
-                </svg>
+                <SunIcon
+                  className={`${styles.navIcon} ${styles.cursorPoint}`}
+                />
               </li>
             </ul>
           </nav>
           {/* logo */}
           <a className={styles.headerLogoContainer} href="#">
-            <svg className={`${styles.iconLogo} cursor-point`}>
-              <use xlinkHref={`${icons}#svg-icon-logo`} />
-            </svg>
+            <Logo className={`${styles.iconLogo} ${styles.cursorPoint}`} />
           </a>
         </div>
       </header>
     </>
   );
-};
-export default Header;
+}

@@ -1,3 +1,7 @@
+import { ReactComponent as Facebook } from "./../../assets/icons/facebook.svg";
+import { ReactComponent as Instagram } from "./../../assets/icons/instagram.svg";
+import { ReactComponent as Whatsapp } from "./../../assets/icons/whatsapp.svg";
+import { ReactComponent as Logo } from "./../../assets/icons/logo.svg";
 import styles from "./Footer.module.scss";
 const Footer = ({ icons }) => {
   return (
@@ -5,9 +9,7 @@ const Footer = ({ icons }) => {
       <footer className={styles.sitefooter}>
         <div className={styles.footerContainer}>
           <div className={styles.footerLogoContainer}>
-            <svg className={styles.iconLogo}>
-              <use xlinkHref={`${icons}#svg-icon-logo`} />
-            </svg>
+            <Logo className={`${styles.iconLogo} logo`} />
           </div>
           <section className={styles.footerSection}>
             <h2 className={styles.sectionTitle}>客戶服務</h2>
@@ -59,15 +61,15 @@ const Footer = ({ icons }) => {
             <div className={styles.sectionContent}>
               <div className={styles.telInfo}>+886 02123-45678</div>
               <div className={styles.socialIcoGroup}>
-                <svg className={`${styles.socialIcon} cursor-point`}>
-                  <use xlinkHref={`${icons}#svg-icon-facebook`} />
-                </svg>
-                <svg className={`${styles.socialIcon} cursor-point`}>
-                  <use xlinkHref={`${icons}#svg-icon-instagram`} />
-                </svg>
-                <svg className={`${styles.socialIcon} cursor-point}`}>
-                  <use xlinkHref={`${icons}#svg-icon-whatsapp`} />
-                </svg>
+                <Facebook
+                  className={`${styles.socialIcon} ${styles.cursorPoint}`}
+                />
+                <Instagram
+                  className={`${styles.socialIcon} ${styles.cursorPoint}`}
+                />
+                <Whatsapp
+                  className={`${styles.socialIcon} ${styles.cursorPoint}`}
+                />
               </div>
             </div>
           </section>

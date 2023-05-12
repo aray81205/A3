@@ -50,7 +50,9 @@ section.buttonGroup {
     }
   }
 }
-
+.cursorPoint {
+  cursor: pointer;
+}
 @media screen and (max-width: $screen-break-point) {
   section.progressControlContainer {
     position: relative;

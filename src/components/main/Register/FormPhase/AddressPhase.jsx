@@ -33,7 +33,7 @@ const citySelect = [
   { id: "KMN", city: "金門縣" },
   { id: "LNN", city: "連江縣" },
 ];
-const AddressPhase = () => {
+const AddressPhase = ({ formRef }) => {
   return (
     <>
       <form className="col col-12" dataphase="address">
@@ -43,7 +43,11 @@ const AddressPhase = () => {
             <div className={`${styles.selectGroup} input-w-lg-2 input-w-sm-s1`}>
               <div className={styles.selectLabel}>稱謂</div>
               <div className={styles.selectContainer}>
-                <select>
+                <select
+                  ref={(node) => {
+                    formRef.current.set("稱謂", node);
+                  }}
+                >
                   <option value="mr">先生</option>
                   <option value="ms">女士</option>
                   <option value="mx">不明</option>
@@ -54,6 +58,7 @@ const AddressPhase = () => {
               inputLabel="姓名"
               className={`${styles.flex2Input}`}
               placeholder="請輸入姓名"
+              formRef={formRef}
             />
           </div>
 
@@ -62,11 +67,13 @@ const AddressPhase = () => {
               inputLabel="電話"
               className={`${styles.flex1Input}`}
               placeholder="請輸入行動電話"
+              formRef={formRef}
             />
             <InputGroup
               inputLabel="Email"
               className={`${styles.flex1Input}`}
               placeholder="請輸入電子郵件"
+              formRef={formRef}
             />
           </div>
 
@@ -76,7 +83,12 @@ const AddressPhase = () => {
             >
               <div className={styles.selectLabel}>縣市</div>
               <div className={styles.selectContainer}>
-                <select required>
+                <select
+                  required
+                  ref={(node) => {
+                    formRef.current.set("縣市", node);
+                  }}
+                >
                   <option value="">請選擇縣市</option>
                   {citySelect.map((city) => (
                     <option key={city.id} value={city.id}>
@@ -90,6 +102,7 @@ const AddressPhase = () => {
               inputLabel="地址"
               className={`${styles.flex2Input}`}
               placeholder="請輸入地址"
+              formRef={formRef}
             />
           </div>
         </section>

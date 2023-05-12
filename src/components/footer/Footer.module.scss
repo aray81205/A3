@@ -72,6 +72,9 @@ footer.siteFooter {
     }
   }
 }
+.cursorPoint {
+  cursor: pointer;
+}
 // --- RWD
 @media screen and (max-width: $screen-break-point) {
   footer.siteFooter {

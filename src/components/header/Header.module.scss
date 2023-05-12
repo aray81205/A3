@@ -6,7 +6,9 @@ $header-action-item-margin-x: 15px;
     --header-height: 60px;
     --header-logo-width: 170px;
 }
-
+.cursorPoint {
+    cursor: pointer;
+}
 header.siteHeader {
     position: sticky;
     top: 0px;

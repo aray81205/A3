@@ -1,53 +1,19 @@
-import styles from "./Progress.module.scss";
+import Step1 from "./Step1";
+import Step2 from "./Step2";
+import Step3 from "./Step3";
 
-const ProgressControl = ({ icons }) => {
+const Progress = ({ step, onStepItemChange, onSubmit }) => {
   return (
     <>
-      <section
-        className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}
-      >
-        <section
-          className={`${styles.buttonGroup} col col-12`}
-          data-phase="address"
-        >
-          <button className={styles.next}>
-            下一步
-            <svg className={styles.cursorPoint}>
-              <use xlinkHref={`${icons}#svg-icon-right-arrow`} />
-            </svg>
-          </button>
-        </section>
-        {/* <section
-          className={`${styles.buttonGroup} col col-12`}
-          data-phase="shipping"
-        >
-          <button className={styles.prev}>
-            <svg className={styles.cursorPoint}>
-              <use xlinkHref={`${icons}#svg-icon-left-arrow`} />
-            </svg>
-            上一步
-          </button>
-          <button className={styles.next}>
-            下一步
-            <svg className={styles.cursorPoint}>
-              <use xlinkHref={`${icons}#svg-icon-right-arrow`} />
-            </svg>
-          </button>
-        </section>
-        <section
-          className={`${styles.buttonGroup} col col-12`}
-          data-phase="credit-card"
-        >
-          <button className={styles.prev}>
-            <svg className="cursor-point">
-              <use xlinkHref={`${icons}#svg-icon-left-arrow`} />
-            </svg>
-            上一步
-          </button>
-          <button className={styles.next}>確認下單</button>
-        </section>*/}
+      <section className="col col-lg-6 col-sm-12">
+        {step === 0 && <Step1 onStepItemChange={onStepItemChange} />}
+        {step === 1 && <Step2 onStepItemChange={onStepItemChange} />}
+        {step === 2 && (
+          <Step3 onSubmit={onSubmit} onStepItemChange={onStepItemChange} />
+        )}
       </section>
     </>
   );
 };
-export default ProgressControl;
+
+export default Progress;
