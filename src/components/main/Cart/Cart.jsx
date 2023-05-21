@@ -6,12 +6,15 @@ import { CartContext } from "../../Context/CartContext";
 
 function ProductInfoItem({ id, name, img, price, getSum }) {
   const [count, setCount] = useState(0);
+
   function handleMinusClick() {
     setCount(count - 1);
+    getSum(-price);
   }
 
   function handlePlusClick() {
     setCount(count + 1);
+    getSum(price);
   }
 
   return (
@@ -28,22 +31,12 @@ function ProductInfoItem({ id, name, img, price, getSum }) {
           <div className={styles.productControl}>
             <MinusIcon
               className={`${styles.productAction} minus`}
-              onClick={() => {
-                if (count <= 0) {
-                  return;
-                } else {
-                  handleMinusClick();
-                  getSum(-price);
-                }
-              }}
+              onClick={handleMinusClick}
             />
             <span className={styles.productCount}>{count}</span>
             <PlusIcon
               className={`${styles.productAction} plus`}
-              onClick={() => {
-                handlePlusClick();
-                getSum(+price);
-              }}
+              onClick={handlePlusClick}
             />
           </div>
         </div>
@@ -54,21 +47,13 @@ function ProductInfoItem({ id, name, img, price, getSum }) {
 }
 
 export default function CartContainer() {
-  const cartData = useContext(CartContext);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  function getSum(price) {
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + price);
-  }
+  const { cartData, totalPrice, getSum } = useContext(CartContext);
 
   return (
     <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
       <h3 className={styles.cartTitle}>購物籃</h3>
 
-      <section
-        className={`${styles.productList} col col-12`}
-        data-total-price={totalPrice}
-      >
+      <section className={`${styles.productList} col col-12`}>
         {cartData.map((data) => (
           <ProductInfoItem key={data.id} {...data} getSum={getSum} />
         ))}
