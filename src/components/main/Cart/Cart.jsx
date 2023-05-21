@@ -1,23 +1,9 @@
 import styles from "./Cart.module.scss";
 import { ReactComponent as PlusIcon } from "../../../assets/icons/plus.svg";
 import { ReactComponent as MinusIcon } from "../../../assets/icons/minus.svg";
-import { useState } from "react";
-const cartData = [
-  {
-    id: "1",
-    name: "貓咪罐罐",
-    img: "https://picsum.photos/300/300?text=1",
-    price: 100,
-    quantity: 2,
-  },
-  {
-    id: "2",
-    name: "貓咪乾乾",
-    img: "https://picsum.photos/300/300?text=2",
-    price: 200,
-    quantity: 1,
-  },
-];
+import { useContext, useState } from "react";
+import { CartContext } from "../../Context/CartContext";
+
 function ProductInfoItem({ id, name, img, price, getSum }) {
   const [count, setCount] = useState(0);
   function handleMinusClick() {
@@ -68,10 +54,11 @@ function ProductInfoItem({ id, name, img, price, getSum }) {
 }
 
 export default function CartContainer() {
+  const cartData = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState(0);
 
   function getSum(price) {
-    setTotalPrice(totalPrice + price);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + price);
   }
 
   return (
