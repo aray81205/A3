@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const cartData = [
+  const [cartData, setCartData] = useState([
     {
       id: "1",
       name: "貓咪罐罐",
@@ -18,16 +18,22 @@ export const CartProvider = ({ children }) => {
       price: 200,
       quantity: 1,
     },
-  ];
+  ]);
 
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(400);
 
   function getSum(price) {
     setTotalPrice((prevTotalPrice) => prevTotalPrice + price);
   }
 
+  function updateCartData(updatedCartData) {
+    setCartData(updatedCartData);
+  }
+
   return (
-    <CartContext.Provider value={{ cartData, totalPrice, getSum }}>
+    <CartContext.Provider
+      value={{ cartData, totalPrice, getSum, setCartData: updateCartData }}
+    >
       {children}
     </CartContext.Provider>
   );

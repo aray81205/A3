@@ -5,7 +5,7 @@ import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 function ProductInfoItem({ id, name, img, price }) {
-  const { cartData, getSum } = useContext(CartContext);
+  const { cartData, getSum, setCartData } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
@@ -18,6 +18,13 @@ function ProductInfoItem({ id, name, img, price }) {
       const updatedQuantity = quantity - 1;
       const updatedPrice = -price;
       setQuantity(updatedQuantity);
+      const updatedCartData = cartData.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: updatedQuantity };
+        }
+        return item;
+      });
+      setCartData(updatedCartData);
       getSum(updatedPrice);
     }
   }
@@ -26,9 +33,15 @@ function ProductInfoItem({ id, name, img, price }) {
     const updatedQuantity = quantity + 1;
     const updatedPrice = price;
     setQuantity(updatedQuantity);
+    const updatedCartData = cartData.map((item) => {
+      if (item.id === id) {
+        return { ...item, quantity: updatedQuantity };
+      }
+      return item;
+    });
+    setCartData(updatedCartData);
     getSum(updatedPrice);
   }
-
   return (
     <div
       className={`${styles.productContainer} col col-12`}
@@ -67,7 +80,7 @@ export default function CartContainer() {
 
       <section className={`${styles.productList} col col-12`}>
         {cartData.map((data) => (
-          <ProductInfoItem key={data.id} {...data} />
+          <ProductInfoItem key={data.id} {...data} getSum={getSum} />
         ))}
       </section>
 
