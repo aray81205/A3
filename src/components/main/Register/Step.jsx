@@ -1,4 +1,4 @@
-import styles from "./Step.module.scss";
+import styles from "../../../style/Step.module.scss";
 
 const Progress = ({ icons, text, label, dataphase }) => {
   return (

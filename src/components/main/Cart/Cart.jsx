@@ -1,27 +1,39 @@
-import styles from "./Cart.module.scss";
+import styles from "../../../style/Cart.module.scss";
 import { ReactComponent as PlusIcon } from "../../../assets/icons/plus.svg";
 import { ReactComponent as MinusIcon } from "../../../assets/icons/minus.svg";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../Context/CartContext";
 
-function ProductInfoItem({ id, name, img, price, getSum }) {
-  const [count, setCount] = useState(0);
+function ProductInfoItem({ id, name, img, price }) {
+  const { cartData, getSum } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(() => {
+    const item = cartData.find((item) => item.id === id);
+    setQuantity(item?.quantity || 0);
+  }, [cartData, id]);
 
   function handleMinusClick() {
-    setCount(count - 1);
-    getSum(-price);
+    if (quantity > 0) {
+      const updatedQuantity = quantity - 1;
+      const updatedPrice = -price;
+      setQuantity(updatedQuantity);
+      getSum(updatedPrice);
+    }
   }
 
   function handlePlusClick() {
-    setCount(count + 1);
-    getSum(price);
+    const updatedQuantity = quantity + 1;
+    const updatedPrice = price;
+    setQuantity(updatedQuantity);
+    getSum(updatedPrice);
   }
 
   return (
     <div
       className={`${styles.productContainer} col col-12`}
       key={id}
-      data-count={count}
+      data-count={quantity}
       data-price={price}
     >
       <img className={styles.imgContainer} src={img} alt={name} />
@@ -33,7 +45,7 @@ function ProductInfoItem({ id, name, img, price, getSum }) {
               className={`${styles.productAction} minus`}
               onClick={handleMinusClick}
             />
-            <span className={styles.productCount}>{count}</span>
+            <span className={styles.productCount}>{quantity}</span>
             <PlusIcon
               className={`${styles.productAction} plus`}
               onClick={handlePlusClick}
@@ -55,7 +67,7 @@ export default function CartContainer() {
 
       <section className={`${styles.productList} col col-12`}>
         {cartData.map((data) => (
-          <ProductInfoItem key={data.id} {...data} getSum={getSum} />
+          <ProductInfoItem key={data.id} {...data} />
         ))}
       </section>
 

@@ -1,5 +1,5 @@
 // -- style
-import styles from "./Main.module.scss";
+import styles from "../../style/Main.module.scss";
 // -- component
 import Register from "./Register/Register";
 import Cart from "./Cart/Cart";

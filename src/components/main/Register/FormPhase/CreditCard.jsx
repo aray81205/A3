@@ -1,4 +1,4 @@
-import styles from "./CreditCard.module.scss";
+import styles from "../../../../style/CreditCard.module.scss";
 import InputGroup from "./InputGroup";
 const CreditCard = ({ formRef }) => {
   return (

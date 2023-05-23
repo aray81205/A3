@@ -1,6 +1,6 @@
 import Step from "./Step";
 import Form from "./Form";
-import styles from "./register.module.scss";
+import styles from "../../../style/register.module.scss";
 
 const Register = ({ icons, step, onShippingOption, formRef }) => {
   return (

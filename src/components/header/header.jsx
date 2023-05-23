@@ -1,4 +1,4 @@
-import styles from "./Header.module.scss";
+import styles from "../../style/Header.module.scss";
 import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
 import { ReactComponent as ToggleIcon } from "../../assets/icons/toggle.svg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";

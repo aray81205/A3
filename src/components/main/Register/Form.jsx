@@ -1,5 +1,5 @@
 import { AddressPhase, CreditCard, ShippingPhase } from "./FormPhase";
-import styles from "./Form.module.scss";
+import styles from "../../../style/Form.module.scss";
 const FormPhase = ({ step, onShippingOption, formRef }) => {
   return (
     <>

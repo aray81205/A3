@@ -1,4 +1,4 @@
-import styles from "./Progress.module.scss";
+import styles from "../../../style/Progress.module.scss";
 import { ReactComponent as RightarrowIcon } from "../../../assets/icons/right-arrow.svg";
 
 const ProgressStep1 = ({ onStepItemChange }) => {

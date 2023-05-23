@@ -1,4 +1,4 @@
-import styles from "./shippingPhase.module.scss";
+import styles from "../../../../style/shippingPhase.module.scss";
 const PhaseItem = ({ id, name, text, period, price, onShippingOption }) => {
   return (
     <label className={`${styles.radioGroup} col col-12`}>

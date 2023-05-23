@@ -1,4 +1,4 @@
-import styles from "./InputGroup.module.scss";
+import styles from "../../../../style/InputGroup.module.scss";
 const InputGroup = ({ inputLabel, placeholder, className, formRef }) => {
   return (
     <div className={`${styles.inputGroup} ${className}`}>
